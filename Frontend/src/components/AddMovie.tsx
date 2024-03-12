@@ -10,7 +10,7 @@ function AddMovie() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/api/movies", {
+      const res = await axios.post("https://moviecriticserver.onrender.com/api/movies", {
         name,
         releaseDate: new Date(releaseDate),
       });

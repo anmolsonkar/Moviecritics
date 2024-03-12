@@ -28,7 +28,7 @@ function MovieList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/movies")
+      .get("https://moviecriticserver.onrender.com/api/movies")
       .then((res) => {
         setMovies(res.data);
         setFilteredMovies(res.data); // Initially show all movies
@@ -36,7 +36,7 @@ function MovieList() {
       .catch((err) => console.error(err));
 
     axios
-      .get("http://localhost:4000/api/reviews")
+      .get("https://moviecriticserver.onrender.com/api/reviews")
       .then((res) => setReviews(res.data))
       .catch((err) => console.error(err));
   }, []);

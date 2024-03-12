@@ -44,7 +44,7 @@ function MovieDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/movies/${id}`)
+      .get(`https://moviecriticserver.onrender.com/api/movies/${id}`)
       .then((res) => setMovie(res.data))
       .catch((err) => console.error(err));
   }, [id]);
@@ -52,7 +52,7 @@ function MovieDetails() {
   const handleSubmitReview = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/api/reviews", {
+      const res = await axios.post("https://moviecriticserver.onrender.com/api/reviews", {
         ...newReview,
         movieId: id,
       });
@@ -67,7 +67,7 @@ function MovieDetails() {
 
   const handleDeleteReview = async (reviewId: string) => {
     try {
-      await axios.delete(`http://localhost:4000/api/reviews/${reviewId}`);
+      await axios.delete(`https://moviecriticserver.onrender.com/api/reviews/${reviewId}`);
       if (movie) {
         setMovie({
           ...movie,
@@ -89,7 +89,7 @@ function MovieDetails() {
     if (editReview) {
       try {
         const res = await axios.put(
-          `http://localhost:4000/api/reviews/${editReview._id}`,
+          `https://moviecriticserver.onrender.com/api/reviews/${editReview._id}`,
           editReview
         );
         if (movie) {
@@ -113,7 +113,7 @@ function MovieDetails() {
 
   const handleDeleteMovie = async () => {
     try {
-      await axios.delete(`http://localhost:4000/api/movies/${id}`);
+      await axios.delete(`https://moviecriticserver.onrender.com/api/movies/${id}`);
       navigate("/");
     } catch (err) {
       console.error(err);
@@ -134,14 +134,18 @@ function MovieDetails() {
     if (editedMovie) {
       try {
         // Fetch the previous movie data
-        const prevMovieRes = await axios.get(`http://localhost:4000/api/movies/${id}`);
+        const prevMovieRes = await axios.get(
+          `https://moviecriticserver.onrender.com/api/movies/${id}`
+        );
         const prevMovieData: Movie = prevMovieRes.data;
 
         // Update the movie details on the server
-        await axios.put(`http://localhost:4000/api/movies/${id}`, editedMovie);
+        await axios.put(`https://moviecriticserver.onrender.com/api/movies/${id}`, editedMovie);
 
         // Fetch the updated movie data from the server
-        const updatedMovieRes = await axios.get(`http://localhost:4000/api/movies/${id}`);
+        const updatedMovieRes = await axios.get(
+          `https://moviecriticserver.onrender.com/api/movies/${id}`
+        );
         const updatedMovieData: Movie = updatedMovieRes.data;
 
         // Merge the updated movie data with the previous reviews

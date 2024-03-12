@@ -27,7 +27,7 @@ function AddReview() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/movies")
+      .get("https://moviecriticserver.onrender.com/api/movies")
       .then((res) => setMovies(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -42,7 +42,7 @@ function AddReview() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/api/reviews", review);
+      const res = await axios.post("https://moviecriticserver.onrender.com/api/reviews", review);
       setReview({
         movieId: "",
         reviewerName: "",
