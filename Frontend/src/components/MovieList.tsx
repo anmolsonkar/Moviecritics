@@ -12,6 +12,7 @@ interface Movie {
 }
 
 interface Review {
+  movie: any;
   _id: string;
   movieId: string;
   reviewerName: string;
@@ -58,6 +59,7 @@ function MovieList() {
 
     setFilteredMovies(filtered);
   };
+  console.log(reviews);
 
   return (
     <div className="flex justify-center">
@@ -88,7 +90,9 @@ function MovieList() {
                     <p>Released: {format(new Date(movie.releaseDate), "do MMMM, yyyy")}</p>
                     <p>
                       {movie.averageRating && (
-                        <span className="text-[#121212]">Rating: {movie.averageRating}/10</span>
+                        <span className="text-[#121212]">
+                          Rating: {movie.averageRating.toFixed(1)}/10
+                        </span>
                       )}
                     </p>
                   </span>

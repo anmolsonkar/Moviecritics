@@ -166,11 +166,13 @@ function MovieDetails() {
         <div className="flex justify-between items-center">
           <h2 className="text-4xl font-bold">{movie.name}</h2>
           {movie.averageRating && (
-            <p className="text-[#6558F5] text-4xl lg:hidden md:hidden">{movie.averageRating}/10</p>
+            <p className="text-[#6558F5] text-4xl lg:hidden md:hidden">
+              {movie.averageRating.toFixed(1)}/10
+            </p>
           )}
           <div className="space-x-6 items-center lg:flex hidden ">
             {movie.averageRating && (
-              <p className="text-[#6558F5] text-4xl">{movie.averageRating}/10</p>
+              <p className="text-[#6558F5] text-4xl">{movie.averageRating.toFixed(1)}/10</p>
             )}
             <button
               onClick={handleEditMovie}
