@@ -117,7 +117,9 @@ function AddReview() {
             </button>
           </form>
         ) : (
-          <p className="text-lg">No movies found :(</p>
+          <p className="text-lg" data-aos="fade">
+            {movies.length == 0 ? "Loading..." : "No movies found :("}
+          </p>
         )}
       </div>
     </div>

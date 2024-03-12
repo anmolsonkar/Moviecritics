@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="bg-[#E3E8ED] py-6">
+      <nav className="bg-[#E3E8ED] py-6" data-aos="fade">
         <div className="container mx-auto flex justify-between items-center px-4">
           <div>
             <Link to="/" className="font-semibold text-xl">

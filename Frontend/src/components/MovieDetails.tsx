@@ -7,7 +7,7 @@ interface Movie {
   _id: string;
   name: string;
   releaseDate: string;
-  averageRating: number | null;
+  averageRating: number;
   reviews: Review[];
 }
 
@@ -47,7 +47,7 @@ function MovieDetails() {
       .get(`https://moviecriticserver.onrender.com/api/movies/${id}`)
       .then((res) => setMovie(res.data))
       .catch((err) => console.error(err));
-  }, [id]);
+  }, [id, movie]);
 
   const handleSubmitReview = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -162,20 +162,27 @@ function MovieDetails() {
     }
   };
 
-  if (!movie) return <div>Loading...</div>;
+  if (!movie)
+    return (
+      <div>
+        <p className="text-lg" data-aos="fade">
+          Loading...
+        </p>
+      </div>
+    );
 
   return (
     <div>
       <div className="p-4 mb-4 items-center">
         <div className="flex justify-between items-center">
           <h2 className="text-4xl font-bold">{movie.name}</h2>
-          {movie.averageRating && (
+          {movie && movie.averageRating != 0 && (
             <p className="text-[#6558F5] text-4xl lg:hidden md:hidden">
               {movie.averageRating.toFixed(1)}/10
             </p>
           )}
           <div className="space-x-6 items-center lg:flex hidden ">
-            {movie.averageRating && (
+            {movie && movie.averageRating != 0 && (
               <p className="text-[#6558F5] text-4xl">{movie.averageRating.toFixed(1)}/10</p>
             )}
             <button
@@ -257,6 +264,9 @@ function MovieDetails() {
 
       <div className="p-4 mb-4">
         <ul>
+          {movie && movie.reviews.length == 0 && (
+            <h2 className="text-2xl font-semibold mb-4">No review added..</h2>
+          )}
           {movie.reviews.map((review) => (
             <li key={review._id} className="border-2 p-4 mt-8 first:mt-0 border-gray-200 py-4">
               {editReview && editReview._id === review._id ? (
@@ -380,6 +390,7 @@ function MovieDetails() {
           </div>
           <div className="mb-2">
             <input
+              required
               type="number"
               id="rating"
               placeholder="Rating out of 10"
@@ -392,6 +403,7 @@ function MovieDetails() {
           </div>
           <div className="mb-4">
             <textarea
+              required
               id="comments"
               placeholder="Review comments"
               value={newReview.comments}

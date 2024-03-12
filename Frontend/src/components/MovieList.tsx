@@ -59,12 +59,11 @@ function MovieList() {
 
     setFilteredMovies(filtered);
   };
-  console.log(reviews);
 
   return (
     <div className="flex justify-center">
       <div className=" w-11/12">
-        <div>
+        <div data-aos="fade">
           <h2 className="text-2xl font-bold mt-2">The best movie reviews site!</h2>
           <span className="flex items-center text-gray-500 mt-7">
             <Search className="absolute ml-2" style={{ fontSize: "24" }} />
@@ -80,7 +79,7 @@ function MovieList() {
         <ul className="flex flex-wrap mt-5">
           {filteredMovies && filteredMovies.length > 0 ? (
             filteredMovies.map((movie) => (
-              <li key={movie._id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-2">
+              <li key={movie._id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-2" data-aos="fade">
                 <Link
                   to={`/movies/${movie._id}`}
                   className="block bg-[#E0DEFD] shadow-md p-4 mb-4 text-lg font-semibold"
@@ -100,7 +99,9 @@ function MovieList() {
               </li>
             ))
           ) : (
-            <p className="text-lg">No movies found :(</p>
+            <p className="text-lg" data-aos="fade">
+              {movies.length == 0 ? "Loading..." : "No movies found :("}
+            </p>
           )}
         </ul>
       </div>
