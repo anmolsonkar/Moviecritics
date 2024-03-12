@@ -21,7 +21,7 @@ function AddMovie() {
   };
 
   return (
-    <div className="container mx-auto px-4 mt-2 w-11/12">
+    <div className="container mx-auto px-4 mt-2 w-11/12" data-aos="fade">
       <h2 className="text-2xl font-bold mb-4">Add new movie</h2>
       <form onSubmit={handleSubmit} className="max-w-sm space-y-6">
         <div className="mb-4">

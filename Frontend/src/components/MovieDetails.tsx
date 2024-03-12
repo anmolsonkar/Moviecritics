@@ -165,7 +165,7 @@ function MovieDetails() {
   if (!movie)
     return (
       <div>
-        <p className="text-lg" data-aos="fade">
+        <p className="text-lg ml-5 mt-5" data-aos="fade">
           Loading...
         </p>
       </div>
@@ -173,7 +173,7 @@ function MovieDetails() {
 
   return (
     <div>
-      <div className="p-4 mb-4 items-center">
+      <div className="p-4 mb-4 items-center" data-aos="fade">
         <div className="flex justify-between items-center">
           <h2 className="text-4xl font-bold">{movie.name}</h2>
           {movie.averageRating != undefined && movie.averageRating != 0 && (
@@ -263,7 +263,7 @@ function MovieDetails() {
       </div>
 
       <div className="p-4 mb-4">
-        <ul>
+        <ul data-aos="fade">
           {movie && movie.reviews.length == 0 && (
             <h2 className="text-2xl font-semibold mb-4">No review added..</h2>
           )}
@@ -375,7 +375,7 @@ function MovieDetails() {
         </ul>
       </div>
 
-      <div className="p-4">
+      <div className="p-4" data-aos="fade">
         <h2 className="text-2xl font-semibold mb-4">Add new review</h2>
         <form onSubmit={handleSubmitReview} className="max-w-sm space-y-6 mt-5">
           <div className="mb-2">

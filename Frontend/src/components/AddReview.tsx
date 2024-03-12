@@ -57,11 +57,11 @@ function AddReview() {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center" data-aos="fade">
       <div className="container mx-auto w-11/12 mt-2 px-4">
         <h2 className="text-2xl font-semibold mb-4">Add new review</h2>
         {movies.length > 0 ? (
-          <form onSubmit={handleSubmit} className="max-w-sm space-y-6">
+          <form onSubmit={handleSubmit} className="max-w-sm space-y-6" data-aos="fade">
             <div className="mb-4">
               <select
                 id="movie"
