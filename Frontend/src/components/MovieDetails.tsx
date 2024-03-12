@@ -177,7 +177,7 @@ function MovieDetails() {
         <div className="flex justify-between items-center">
           <h2 className="text-4xl font-bold">{movie.name}</h2>
           {movie.averageRating != undefined && movie.averageRating != 0 && (
-            <p className="text-[#6558F5] text-4xl lg:hidden md:hidden">
+            <p className="text-[#6558F5] text-3xl mt-1 lg:hidden md:hidden">
               {movie.averageRating.toFixed(1)}/10
             </p>
           )}
