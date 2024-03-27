@@ -25,7 +25,7 @@ const Header = () => {
         <div className="container mx-auto flex justify-between items-center px-4">
           <div>
             <Link to="/" className="font-semibold text-xl">
-              MOVIECRITIC
+              MOVIECRITICS
             </Link>
           </div>
           <div>

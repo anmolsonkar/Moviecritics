@@ -1,4 +1,4 @@
-# Moviecritic
+# Moviecritics
 
 This project comprises frontend and backend components demonstrating concurrent execution.
 
@@ -13,7 +13,7 @@ This project comprises frontend and backend components demonstrating concurrent 
 
 1.  Clone the repository:
 
-    `git clone https://github.com/anmolsonkar/Moviecritic.git`
+    `git clone https://github.com/anmolsonkar/Moviecritics.git`
 
 2.  Install dependencies at the root level: `npm install`
 

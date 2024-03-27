@@ -2,7 +2,7 @@
   "dependencies": {
     "concurrently": "^8.2.2"
   },
-  "name": "moviecritic",
+  "name": "moviecritics",
   "description": "This project comprises frontend and backend components demonstrating concurrent execution.",
   "version": "1.0.0",
   "main": "index.js",
