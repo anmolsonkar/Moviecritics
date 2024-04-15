@@ -20,6 +20,11 @@ const URI = process.env.MONGODB_URI;
     }
 })();
 
+
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
 app.use('/api', routes);
 
 const port = process.env.PORT || 4000;
