@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import routes from './routes/routers.js';
 import 'dotenv/config';
-import pm2 from 'pm2';
 
 const app = express();
 app.use(express.json());
@@ -20,14 +19,9 @@ const URI = process.env.MONGODB_URI;
     }
 })();
 
-
-app.get('/health', (req, res) => {
-    res.status(200).send('OK');
-});
-
 app.use('/api', routes);
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
