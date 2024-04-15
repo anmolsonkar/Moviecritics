@@ -5,8 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "pm2 start server.js"
+    "start": "pm2 start server.js",
+    "dev": "nodemon server.js"
   },
   "author": "Anmol Sonkar",
   "license": "MIT",
